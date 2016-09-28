@@ -1,0 +1,14 @@
+Steps to reproduce
+
+# Build jar
+$ mvn package
+
+# Start server 
+$ java -jar -javaagent:quasar-core-0.7.5-jdk8.jar target vertx-sync-fiberhandler-error-0.0.1-SNAPSHOT-fat.jar
+
+# Test http request for fiber handler, this request hangs
+http://localhost:8080/with_fiber
+
+# Test http request withouth fiber handler, this gives internal server error 
+http://localhost:8080/without_fiber
+
